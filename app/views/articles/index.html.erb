@@ -1,5 +1,8 @@
 <div class="large-container center-block">
     <h1>Articles</h1>
+    <% if user_signed_in? %>
+        <%= link_to "New article", new_article_path %>
+    <% end %>
 
     <%= render @articles %>
 </div>

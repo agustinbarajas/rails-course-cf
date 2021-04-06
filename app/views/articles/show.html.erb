@@ -1,14 +1,18 @@
 <div class="large-container center-block">
-    <h1><%=@article.title%></h1>
+    <h3><%=@article.title%></h3>
     <p class="text-secondary">Author: <strong><%= @article.user.email %></strong></p>
-    <div>
+    <div class="mb-2">
         <%= @article.content %>
     </div>
 
-    <% if user_signed_in? %>
-        <div>
-            <%=link_to "Edit article", edit_article_path %>
-            <%=link_to "Delete article", @article, method: :delete %>
-        </div>
-    <% end %>
+    <div>
+        <%=link_to "Back", articles_path %>
+
+        <% if user_signed_in? %>
+                <span class="mx-2">|</span>
+                <%=link_to "Edit", edit_article_path %>
+                <span class="mx-2">|</span>
+                <%=link_to "Delete", @article, method: :delete, class: "text-danger" %>
+        <% end %>
+    </div>
 </div>

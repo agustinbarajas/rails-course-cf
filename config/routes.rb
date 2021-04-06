@@ -4,13 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'welcome', to: 'home#index'
 
-  get 'articles', to: 'articles#index'
-  get 'articles/user/:user_id', to: 'articles#from_author'
-  get 'articles/new', to: 'articles#new', as: :new_article
-  get 'articles/:id', to: 'articles#show'
-  get 'articles/:id/edit', to: 'articles#edit', as: :edit_article
-
-  post 'articles', to: 'articles#create'
-  patch 'articles/:id', to: 'articles#update', as: :article
-  delete 'articles/:id', to: 'articles#delete'
+  resources :articles do
+    get 'user/:user_id', to: 'articles#from_author', on: :collection
+  end
 end

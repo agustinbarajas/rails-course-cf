@@ -5,8 +5,10 @@
         <%= @article.content %>
     </div>
 
-    <div>
-        <%=link_to "Edit article", edit_article_path %>
-        <%=link_to "Delete article", @article, method: :delete %>
-    </div>
+    <% if user_signed_in? %>
+        <div>
+            <%=link_to "Edit article", edit_article_path %>
+            <%=link_to "Delete article", @article, method: :delete %>
+        </div>
+    <% end %>
 </div>

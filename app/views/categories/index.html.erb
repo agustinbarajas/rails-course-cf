@@ -1,0 +1,15 @@
+<div class="large-container center-block">
+  <h1>Categories</h1>
+  <% if user_signed_in? %>
+    <%= link_to 'New Category', new_category_path %>
+  <% end %>
+
+  <% @categories.each do |category| %>
+    <div class="card padding margin-top">
+      <h5 class="text-uppercase"><%= category.title %></h5>
+      <p class="text-secondary">Color: <span class="badge badge-pill text-white" style="background-color:<%= category.color %>">Example</span></p>
+      <p class="text-secondary">Date: <%= category.created_at %></p>
+      <%= link_to "See articles", category %>
+    </div>
+  <% end %>
+</div>

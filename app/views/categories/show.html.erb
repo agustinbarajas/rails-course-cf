@@ -1,0 +1,15 @@
+<div class="large-container center-block">
+  <h3>Articles of <%= @category.title %> category</h3>
+  <div>
+    <%=link_to "Back", categories_path %>
+    
+    <% if user_signed_in? %>
+        <span class="mx-2">|</span>
+        <%=link_to "Edit category", edit_category_path(@category) %>
+        <span class="mx-2">|</span>
+        <%=link_to "Delete category", @category, method: :delete, class: "text-danger" %>
+    <% end %>
+  </div>
+
+  <%= render @category.articles %>
+</div>

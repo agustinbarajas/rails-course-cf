@@ -1,6 +1,17 @@
 <div class="large-container center-block">
     <h3><%=@article.title%></h3>
     <p class="text-secondary">Author: <strong><%= @article.user.email %></strong></p>
+
+    <div>
+        <p class="text-secondary">Categories:
+            <% @article.categories.each do |category| %>
+                <span class="badge badge-pill" style="background-color:<%= category.color %>">
+                    <%= link_to category.title, category, class: "text-white" %>
+                </span>
+            <% end %>
+        </p>
+    </div>
+
     <div class="mb-2">
         <%= @article.content %>
     </div>
